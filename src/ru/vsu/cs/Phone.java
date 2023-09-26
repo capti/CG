@@ -9,15 +9,18 @@ public class Phone extends JPanel implements ActionListener {
 
     private int phoneX = 50;
     private int phoneY = 50;
-    private int phoneWidth = 150;
-    private int phoneHeight = 300;
+    private int phoneWidth = 200;
+    private int phoneHeight = 450;
 
-    private int screenWidth = phoneWidth - 40;
-    private int screenHeight = phoneHeight - 60;
+    private int screenX = phoneX + 10;
+    private int screenY = phoneY + 10;
+    private int screenWidth = phoneWidth - 20;
+    private int screenHeight = phoneHeight - 30;
+
     private Timer timer;
 
     public Phone() {
-        timer = new Timer(10, this);
+        timer = new Timer(30, this);
         timer.start();
     }
 
@@ -33,14 +36,54 @@ public class Phone extends JPanel implements ActionListener {
 
         //экран
         g2d.setColor(Color.CYAN);
-        g2d.fillRect(phoneX + 20, phoneY + 20, screenWidth, screenHeight);
+        g2d.fillRect(screenX, screenY, screenWidth, screenHeight);
+
+        //иконки 1 ряд
+        g2d.setColor(Color.GREEN);
+        g2d.fillRect(screenX + 5, screenY + 20, 30,30);
+
+        g2d.setColor(Color.RED);
+        g2d.fillRect(screenX + 50, screenY + 20, 30,30);
+
+        g2d.setColor(Color.GRAY);
+        g2d.fillRect(screenX + 100, screenY + 20, 30,30);
+
+        g2d.setColor(Color.YELLOW);
+        g2d.fillRect(screenX + 145, screenY + 20, 30,30);
+
+        //иконки 2 ряд
+        g2d.setColor(Color.MAGENTA);
+        g2d.fillRect(screenX + 5, screenY + 70, 30,30);
+
+        g2d.setColor(Color.PINK);
+        g2d.fillRect(screenX + 50, screenY + 70, 30,30);
+
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(screenX + 100, screenY + 70, 30,30);
+
+        g2d.setColor(Color.ORANGE);
+        g2d.fillRect(screenX + 145, screenY + 70, 30,30);
+
+        //иконки 3 ряд
+        g2d.setColor(Color.LIGHT_GRAY);
+        g2d.fillRect(screenX + 5, screenY + 120, 30,30);
+
+        g2d.setColor(Color.DARK_GRAY);
+        g2d.fillRect(screenX + 50, screenY + 120, 30,30);
+
+        g2d.setColor(Color.RED);
+        g2d.fillRect(screenX + 100, screenY + 120, 30,30);
+
+        g2d.setColor(Color.GREEN);
+        g2d.fillRect(screenX + 145, screenY + 120, 30,30);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         phoneX += 2;
-        phoneY += 2;
+        screenX += 2;
+
 
         repaint(); // перерисовываем панель
     }
